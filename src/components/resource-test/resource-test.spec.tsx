@@ -6,14 +6,7 @@ import { ResourceTest } from './resource-test'
 test(`[ResourceTest Component]: Should render github repos`, async () => {
     const { screen, render, userEvent } = await createDOM()
 
-    const TestComp = component$(() => {
-        const sig = useSignal('test');
-        return (
-            <ResourceTest sig={sig} />
-        )
-    })
-
-    await render(<TestComp />)
+    await render(<ResourceTest />)
     
     //@ts-ignore
     await screen.qwik.state.$renderPromise$ 
@@ -21,8 +14,8 @@ test(`[ResourceTest Component]: Should render github repos`, async () => {
 
     await userEvent('#loadWidget',"click")
 
-    
+    //@ts-ignore
     const val = screen.querySelector("#resourceInput")?.value; 
-    expect(val).toBe("jessekinsman")
+    expect(val).toBe("onwidget")
     expect(screen.innerHTML).toContain("Loading") 
 })

@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
 import { component$, useStore, Resource, useResource$, type Signal } from '@builder.io/qwik';
 
-export const ResourceTest =  component$<{
-    sig: Signal
-}>(({sig}) => {
+export const ResourceTest =  component$(() => {
   const github = useStore({
     org: 'BuilderIO',
   });
@@ -27,7 +25,6 @@ export const ResourceTest =  component$<{
   return (
     <main>
       <p>
-        <span>{sig.value}</span><br/>
         <label>
           GitHub username:
           <input
